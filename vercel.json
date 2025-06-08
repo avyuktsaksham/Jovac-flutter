@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "functions": {
+    "functions/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/functions/$1"
+    }
+  ],
+  "builds": [
+    {
+      "src": "functions/**/*.js",
+      "use": "@vercel/node"
+    }
+  ]
+}

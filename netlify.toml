@@ -1,0 +1,11 @@
+[build]
+  # publish = "."  # Assuming site is served from root, or specify your build output folder e.g., "dist", "public"
+  functions = "functions" # Directory for serverless functions
+
+# Redirect rule to make function endpoint cleaner, e.g., /api/send-email
+# This also helps if you decide to switch to another provider that uses /api/ by default.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200 # OK status for a function invocation, not a 301/302 redirect
+  # force = true # Uncomment if you need to override existing files, usually not needed for functions
