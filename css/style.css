@@ -1,0 +1,371 @@
+/* Basic styles */
+:root {
+    --primary-dark: #2c3e50; /* Midnight Blue */
+    --secondary-dark: #34495e; /* Wet Asphalt */
+    --primary-light: #ecf0f1; /* Clouds */
+    --accent-color: #3498db; /* Peter River */
+    --text-color: #333;
+    --heading-font: 'Georgia', serif;
+    --body-font: 'Arial', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-light);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    color: var(--primary-dark);
+}
+
+header {
+    background-color: var(--primary-dark);
+    color: var(--primary-light);
+    padding: 1em 20px; /* Consistent padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 25px; /* Slightly increased spacing */
+}
+
+header nav ul li:first-child {
+    margin-left: 0;
+}
+
+header nav ul li a {
+    color: var(--primary-light);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px; /* Add padding for a larger clickable area */
+    border-radius: 4px; /* Slightly rounded corners for hover effect */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+header nav ul li a:hover {
+    background-color: var(--accent-color); /* Background color change on hover */
+    color: var(--primary-dark); /* Text color change on hover */
+}
+
+main {
+    padding-bottom: 100px; /* Increased padding to ensure footer doesn't overlap content */
+}
+
+section {
+    padding: 25px; /* Increased padding */
+    margin: 25px auto; /* Increased margin */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Slightly adjusted shadow */
+    max-width: 960px;
+    /* Initial state for scroll-reveal */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero section placeholders */
+#hero {
+    padding: 0; /* Remove default section padding if placeholders take full width/height */
+    background-color: transparent; /* No background for the hero section itself */
+    box-shadow: none; /* No shadow for the hero section itself */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 20px; /* Space between placeholder divs */
+    padding-top: 20px; /* Add some padding at the top of the hero section */
+    padding-bottom: 20px; /* Add some padding at the bottom of the hero section */
+    /* Hero section should be visible by default, not part of general scroll reveal */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#tagline-container {
+    text-align: center;
+    margin-bottom: 20px; /* Space below tagline */
+}
+
+#tagline {
+    font-size: 2.2em; /* Adjust size as needed */
+    color: var(--primary-dark);
+    /* The h1 styling from above will apply for font-family */
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 2px; /* Width of the cursor */
+    background-color: var(--primary-dark);
+    margin-left: 3px;
+    animation: blink 0.7s infinite;
+    position: relative;
+    top: -2px; /* Adjust to align with text baseline */
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.placeholder-svg, .placeholder-banner {
+    width: 80%; /* Example width */
+    max-width: 600px; /* Max width */
+    padding: 40px 20px;
+    border: 2px dashed var(--secondary-dark);
+    background-color: #f9f9f9;
+    text-align: center;
+    font-family: var(--heading-font);
+    color: var(--secondary-dark);
+    border-radius: 8px;
+    margin: 10px 0; /* Margin for separation */
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for general links */
+}
+
+a:hover {
+    color: var(--primary-dark); /* Darken on hover */
+    text-decoration: underline;
+}
+
+footer {
+    background-color: var(--secondary-dark);
+    color: var(--primary-light);
+    text-align: center;
+    padding: 1.2em 0; /* Slightly increased padding */
+    border-top: 4px solid var(--accent-color); /* Thicker border */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Project item styling in projects.html */
+.project-item {
+    margin-bottom: 25px; /* Increased margin */
+    padding: 15px; /* Add padding inside the article */
+    border: 1px solid #ddd; /* Add a border */
+    border-radius: 6px;
+    background-color: #fdfdfd; /* Slightly off-white background */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Transition for hover */
+}
+
+.project-item:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15); /* More pronounced shadow on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
+.project-item:last-child {
+    border-bottom: 1px solid #ddd; /* Keep border for consistency if it's the last child */
+}
+
+.project-item h3 {
+    color: var(--accent-color);
+    margin-top: 0; /* Remove default top margin */
+}
+
+.project-item a {
+    display: inline-block; /* Allows padding and margin */
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: var(--accent-color);
+    color: var(--primary-light);
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project-item a:hover {
+    background-color: var(--primary-dark);
+    color: var(--primary-light); /* Keep text light on dark hover */
+    text-decoration: none; /* Remove underline from button-like links */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Contact Form Styling */
+#contact-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contact-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--primary-dark);
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--body-font);
+    font-size: 1em;
+    box-sizing: border-box; /* Ensure padding doesn't increase width */
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+#contact-form button[type="submit"] {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: var(--heading-font);
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form button[type="submit"]:hover {
+    background-color: var(--primary-dark);
+}
+
+#form-status {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+#form-status.success {
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green */
+    border: 1px solid #c3e6cb;
+}
+
+#form-status.error {
+    background-color: #f8d7da; /* Light red */
+    color: #721c24; /* Dark red */
+    border: 1px solid #f5c6cb;
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 1em 15px; /* Adjusted padding */
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px; /* Add margin if header becomes column */
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+        margin-left: 0;
+    }
+
+    section {
+        margin: 15px; /* Adjusted margin */
+        padding: 20px; /* Adjusted padding */
+    }
+
+    #hero {
+        gap: 15px; /* Reduced gap for smaller screens */
+    }
+
+    .placeholder-svg, .placeholder-banner {
+        width: 90%; /* Wider on smaller screens */
+        padding: 30px 15px;
+    }
+
+    h1 {
+        font-size: 1.8em; /* Adjusted font size */
+    }
+
+    #tagline { /* Adjust tagline for medium screens */
+        font-size: 1.9em;
+    }
+
+    h2 {
+        font-size: 1.4em; /* Adjusted font size */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.95em; /* Slightly increased base font for mobile readability */
+    }
+
+    header {
+        padding: 0.8em 10px; /* Adjusted padding */
+    }
+
+    header nav ul li a {
+        font-size: 0.95em; /* Adjusted font size */
+        padding: 8px 12px; /* Adjust padding for smaller screens */
+    }
+
+    main {
+        padding-bottom: 90px; /* Adjust for potentially taller footer or nav */
+    }
+
+    footer {
+        padding: 1em 0; /* Adjusted padding */
+    }
+
+    section {
+        margin: 10px; /* Adjusted margin */
+        padding: 15px; /* Adjusted padding */
+    }
+
+    .placeholder-svg, .placeholder-banner {
+        padding: 25px 10px;
+        font-size: 0.9em;
+    }
+
+    #tagline { /* Adjust tagline for small screens */
+        font-size: 1.5em;
+    }
+
+    .project-item a {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+}

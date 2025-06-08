@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-contact-function",
+  "version": "1.0.0",
+  "description": "Serverless function for portfolio contact form",
+  "main": "send-email.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manas Kashyap",
+  "license": "ISC",
+  "dependencies": {
+  }
+}
